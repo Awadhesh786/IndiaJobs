@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
-import { View ,Text, StyleSheet, TouchableOpacity, Image, Linking} from "react-native";
+import { View ,Text, StyleSheet, TouchableOpacity, Image,ScrollView, Linking} from "react-native";
 import colors from '../component/Colors';
 
 export default class slideMenu extends Component{
     render(){
         return (
             <View>
+              <ScrollView>
               <TouchableOpacity                  
                 onPress={ ()=> Linking.openURL('https://sacredbits.com/jobs/') }
                 style={styles.card}>
                 <Image 
                   style={styles.img}
                   source={require('../image/ic_launcher.png')}/>
+              </TouchableOpacity>         
+              
+              <TouchableOpacity
+                onPress={()=> this.props.navigation.navigate("Home")}
+                style={styles.subCard}>
+                 <Text style={styles.txt}>Home</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={()=> this.props.navigation.navigate("AdminPannel")}
+                style={styles.subCard}>
+                 <Text style={styles.txt}>Admin Pannel</Text>
               </TouchableOpacity>
                        
               <TouchableOpacity
@@ -25,7 +38,7 @@ export default class slideMenu extends Component{
                 style={styles.subCard}>
                  <Text style={styles.txt}>Our Story</Text>
               </TouchableOpacity>
-              
+              </ScrollView>
             </View>
          );
     }

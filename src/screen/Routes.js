@@ -3,6 +3,10 @@ import {Easing,Animated} from "react-native";
 
 import Home from "./Home";
 import Details from "./Details";
+import AdminPannel from './AdminPannel';
+import AdminPost from './AdminPost';
+import Check from './CheckApi';
+
 import SlideMenu from '../slideMenu/SlideMenu';
 
 import About from '../screen/About';
@@ -38,7 +42,10 @@ const AppNavigator = createStackNavigator(
     Details: { screen: Details},
     SlideMenu: { screen: SlideMenu},
     About: { screen: About},
-    Story : { screen: Story}
+    Story : { screen: Story},
+    AdminPost : {screen: AdminPost },
+    AdminPannel : { screen: AdminPannel},
+    Check: { screen: Check},
   },
   {
     transitionConfig
