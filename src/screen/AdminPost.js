@@ -9,7 +9,7 @@ import styles from '../css/AdminPostStyle';
 export default class App extends Component {
 
     static navigationOptions = {
-        title: 'Admin Potal',
+        title: 'Admin Portal',
         headerStyle: {
           backgroundColor: colors.primary,
         },
@@ -37,7 +37,7 @@ export default class App extends Component {
 
         <View style={styles.container}>
 
-        <Text style={styles.input}>Your Details</Text>            
+        <Text style={styles.input}>Job Details</Text>            
             
             <ScrollView
                  contentInsetAdjustmentBehavior="automatic"

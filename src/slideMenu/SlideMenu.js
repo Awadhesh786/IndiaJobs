@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
-import { View ,Text, StyleSheet, TouchableOpacity, Image,ScrollView, Linking} from "react-native";
+import { View ,Text, StyleSheet, TouchableOpacity, Image,ScrollView, Linking, Share} from "react-native";
 import colors from '../component/Colors';
 
 export default class slideMenu extends Component{
+
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'India Jobs (a helping hand to job seekers) is now available on play store.'+ 
+          '\n Download it to get job walk-ins information in India.' + 
+          '\n Link - http://bit.ly/indiajobsfresher'
+      });
+
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  
     render(){
         return (
             <View>
@@ -24,7 +39,7 @@ export default class slideMenu extends Component{
               <TouchableOpacity
                 onPress={()=> this.props.navigation.navigate("AdminPannel")}
                 style={styles.subCard}>
-                 <Text style={styles.txt}>Admin Pannel</Text>
+                 <Text style={styles.txt}>Admin Panel</Text>
               </TouchableOpacity>
                        
               <TouchableOpacity
@@ -37,6 +52,12 @@ export default class slideMenu extends Component{
                 onPress={()=> this.props.navigation.navigate("Story")}
                 style={styles.subCard}>
                  <Text style={styles.txt}>Our Story</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={()=> this.onShare()}
+                style={styles.subCard}>
+                 <Text style={styles.txt}>Invite</Text>
               </TouchableOpacity>
               </ScrollView>
             </View>

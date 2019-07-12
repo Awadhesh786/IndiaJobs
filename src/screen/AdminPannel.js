@@ -83,7 +83,7 @@ export default class App extends Component<Props> {
 
         <View style={styles.container}>
 
-        <Text style={styles.input}>Admin Potal</Text>
+        <Text style={styles.input}>Admin Portal</Text>
 
     <View style={styles.inputContainer}>
 
