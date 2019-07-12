@@ -14,58 +14,12 @@ import { withNavigation } from 'react-navigation'
 import styles from '../css/HomeStyle';
 import colors from '../component/Colors';
 
-class Home extends React.Component {
-   
-    static navigationOptions  = ({ navigation }) => ({
-        title: 'India Jobs',
-        headerStyle: {
-          backgroundColor: colors.primary,
-          
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          textAlign: 'center',
-          flexGrow:1,
-          alignSelf:'center',
-          fontWeight: 'bold',
- 
-        },
-        headerLeft: (
-          <TouchableOpacity 
-            //onPress={() => this.props.navigate('DrawerOpen')}
-          //onPress={()=>this.props.navigation.navigate('DrawerOpen')}
-          //onPress={() =>{ this.props.navigation.DrawerOpen()}}
 
-          style={{flexDirection:"row", justifyContent:"center"}}
-          >
-            <View style={{marginLeft:10,alignSelf:"center"}}>
-            <Text style={{fontStyle:"italic", color:"white", }}>swipe</Text>
-            <Text style={{fontStyle:"italic", color:"white", }}>right</Text>
-            </View>
-            <Image 
-              //onPress={()=>this.navigation.navigate('Details')}
-              style={{height:30, width:30, marginLeft:10,}} 
-              source={require('../image/arrows.png')}/>  
-          </TouchableOpacity>
-          ),
-
-
-          // headerRight: (
-          //   <TouchableOpacity
-            
-          //     onPress={()=>this.props.navigation.navigate("About")}  
-          //   //onPress={() => alert('This is a button!')}
-          //   >
-          //       <Image
-          //     source={require('../image/info.png')}
-          //     style={{height:30, width:30, marginRight:10}}
-          //     color="#fff"
-          //   />
-          //   </TouchableOpacity>
-            
-            
-          // ),
-    });
+class Home extends React.Component {  
+  
+  static navigationOptions = {
+    header: null,
+    };
 
     constructor(props) {
         super(props);
@@ -97,7 +51,6 @@ class Home extends React.Component {
         })
         
         
-        //.catch(error=>console.log(error)) //to catch the errors if any
       }
 
     FlatListItemSeparator = () => {
@@ -118,7 +71,7 @@ class Home extends React.Component {
         
     renderItem=(data)=>
     <TouchableOpacity 
-      onPress={()=>this.props.navigation.navigate("Details",{api: data.item})} 
+    onPress={()=>this.props.navigation.navigate("Details",{api: data.item})} 
       style={styles.list}>
 
     <View style={styles.frame}>
@@ -168,6 +121,20 @@ class Home extends React.Component {
         backgroundColor = {colors.statubar}
         //translucent = {true}
         />
+
+        <View style={{backgroundColor: colors.primary, flexDirection:"row"}}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.openDrawer()}  
+            style={{width:"12%", justifyContent:"center", alignItems:"center"}}>
+          <Image 
+            source={require('../image/menu.png')}
+            style={{height:23, width:23}} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={{width:"75%"}}>
+          <Text style={{ fontSize:20, fontWeight:"bold",color:"white", padding:14, textAlign:"center"}}>India Jobs</Text>
+          </TouchableOpacity>
+        </View>
 
         <FlatList
             data= {this.state.dataSource}
